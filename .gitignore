@@ -1,0 +1,116 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Conda
+.conda/
+
+# Conda
+.conda/
+prompt.txt
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+common/.env
+.env.*
+!.env.example
+prompts.txt
+prompt.txt
+
+
+# API keys / credentials
+*.pem
+*.key
+secrets/
+credentials/
+
+# =========================
+# IDEs
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Demo
+# =========================
+demo/
+
+# =========================
+# Testing / Coverage
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+.cache/
+
+# =========================
+# Build / Packaging
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# Model Files/Folders
+# =========================
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.h5
+*.msgpack
+demo/
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# =========================
+# Docker
+# =========================
+docker-compose.yml
+docker-compose.override.yml
+
+# =========================
+# Data
+# =========================
+data/
