@@ -1,11 +1,18 @@
+import os
 from pathlib import Path
 
 import torch
 from datasets import load_dataset
+from dotenv import load_dotenv
 from torch.utils.data import DataLoader
 from transformers import BertTokenizer
 
-DATA_DIR = Path(__file__).resolve().parent / "data" / "raw"
+_ROOT = Path(__file__).resolve().parent
+load_dotenv(_ROOT / ".env")
+
+DATA_DIR = _ROOT / os.getenv("DATA_RAW_DIR", "data/raw")
+PRETRAINED_MODEL = os.getenv("PRETRAINED_MODEL", "bert-base-uncased")
+MAX_LENGTH = int(os.getenv("MAX_LENGTH", "32"))
 
 dataset_dict = load_dataset(
     "csv",
@@ -16,19 +23,18 @@ dataset_dict = load_dataset(
     },
 )
 
-my_tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+my_tokenizer = BertTokenizer.from_pretrained(PRETRAINED_MODEL)
 
 
 def collate_fn(data):
     sents = [i["text"] for i in data]
     labels = [i["label"] for i in data]
-    print("sents", sents)
 
     encoded = my_tokenizer(
         sents,
         truncation=True,
         padding="max_length",
-        max_length=32,
+        max_length=MAX_LENGTH,
         return_tensors="pt",
     )
 
